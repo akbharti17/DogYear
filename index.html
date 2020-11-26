@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dog years</title>
+	<style>
+		body{
+			background-image: url("dog.jpg");
+			background-size: contain;
+		}
+		.col{
+			width: 400px;
+			position: relative;
+			border-radius: 25px;
+			margin: 0px auto;
+			height: 500px;
+			text-align: center;
+			padding: 20px 20px 100px 20px;
+			background: linear-gradient(#666699 5%, #9933ff 53%);
+		}
+		
+		input[type=number]{
+			padding: 10px;
+			width: 300px;
+			border-radius: 5px;
+		}
+		input[type=button]{
+			padding: 10px;
+			border-radius: 5px;
+		}
+		img{
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="col">
+		<img src="man.jpg" height="100" width="140" id="im" alt="img">
+		<h1>Dog Year Converter</h1>
+		<form>
+			<p>
+			<label>Enter Your Age</label>
+			<input type="number"  id="value" placeholder="Enter Age">
+		    </p>
+		    <p>
+		    	<input type="button"  value="Convert" onclick="convert()">
+		    </p>
+		     <h4>Your Age In Dog Year</h4>
+		    <p>
+		    	<label>Years</label>
+		    	<input type="number"  id="years" class="result" placeholder="Years">
+		    </p>
+		    <p>
+		    	<label>Month</label>
+		      <input type="number"  id="month" class="result" placeholder="Month">
+		    </p>
+		</form>	
+		<img src="giphy.gif" alt="img1" width="250" height="100">		
+	</div>
+	
+	<script>
+		function convert() {
+		document.getElementById('im').src='download.jpeg';
+		var humanAge=document.getElementById('value').value;
+		var dogAge;
+		var month,years;
+		if(humanAge=='' || humanAge<=0){
+			alert("Invalid Input");
+			document.getElementById('im').src='man.jpg';
+
+		}
+		if(humanAge<=21){
+			dogAge=humanAge/10.5;
+		}
+		if(humanAge>21) {
+			dogAge=(humanAge/4)-(3.25);
+		}
+		console.log(dogAge);
+        years=parseInt(dogAge);
+        month=parseInt((dogAge-years)*12);
+        console.log(years);
+        console.log(month);
+        document.getElementById("years").value=years;
+        document.getElementById("month").value=month;
+		}
+	</script>
+
+</body>
+</html>
